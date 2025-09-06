@@ -516,10 +516,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5168870707203575297, guid: 8e4c49abc89f740beb8713c6fce689e1, type: 3}
     - target: {fileID: -6388978696807680845, guid: 3dcd760c5ff6f47eeb9d7f51dacbba41, type: 3}
-      propertyPath: branchPrefab
-      value: 
-      objectReference: {fileID: 2608012075847818246, guid: 1071cf47da8334a55bc1916d43e144dd, type: 3}
-    - target: {fileID: -6388978696807680845, guid: 3dcd760c5ff6f47eeb9d7f51dacbba41, type: 3}
       propertyPath: leftAndRightEdge
       value: 20
       objectReference: {fileID: 0}

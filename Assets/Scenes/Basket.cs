@@ -49,5 +49,12 @@ public class Basket : MonoBehaviour
                 HighScore.score = score;
             }
         }
+        else if (collidedWith.tag == "Branch")
+        {
+            Destroy(collidedWith);
+
+            ApplePicker apScript = Camera.main.GetComponent<ApplePicker>();
+            apScript.AppleDestroyed();
+        }
     }
 }

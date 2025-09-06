@@ -8,6 +8,8 @@ public class AppleTree : MonoBehaviour
 
     public GameObject applePrefab;
 
+    public GameObject branchPrefab;
+
     public float speed = 1f;
 
     public float leftAndRightEdge = 10f;
@@ -15,6 +17,8 @@ public class AppleTree : MonoBehaviour
     public float chanceToChangeDirections = 0.1f;
 
     public float secondsBetweenAppleDrops = 1f;
+
+    public float chanceToDropBranch = 0.2f;
 
 
     // Start is called before the first frame update
@@ -25,16 +29,29 @@ public class AppleTree : MonoBehaviour
 
     void DropApple()
     {
-        GameObject apple = Instantiate<GameObject>(applePrefab);
-        Vector3 applePosition = transform.position;
-        
-        apple.transform.position = transform.position;
-        applePosition.y = 0f; // Set the Y position to ground level
-        Invoke("DropApple", secondsBetweenAppleDrops);
+        if (Random.value < chanceToDropBranch)
+        {
+            // Drop a branch
+            GameObject branch = Instantiate<GameObject>(branchPrefab);
+            Vector3 branchPosition = transform.position;
+            branch.transform.position = transform.position;
+            branchPosition.y = 0f; // Set the Y position to ground level
+            Invoke("DropApple", secondsBetweenAppleDrops);
+        }
+        else
+        {
+            // Drop an apple
+            GameObject apple = Instantiate<GameObject>(applePrefab);
+            Vector3 applePosition = transform.position;
+
+            apple.transform.position = transform.position;
+            applePosition.y = 0f; // Set the Y position to ground level
+            Invoke("DropApple", secondsBetweenAppleDrops);
+        }
     }
 
     // Update is called once per frame
-    void Update()
+        void Update()
     {
         // Basic Movement
         Vector3 pos = transform.position;

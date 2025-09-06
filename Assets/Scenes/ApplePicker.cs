@@ -35,6 +35,11 @@ public class ApplePicker : MonoBehaviour
             Destroy(tGO);
         }
 
+        GameObject[] tBranchArray = GameObject.FindGameObjectsWithTag("Branch");
+        foreach (GameObject tGO in tBranchArray)
+        {
+            Destroy(tGO);
+        }
         int basketIndex = basketList.Count - 1;
         GameObject tBasketGO = basketList[basketIndex];
         basketList.RemoveAt(basketIndex);
@@ -44,6 +49,16 @@ public class ApplePicker : MonoBehaviour
         {
             SceneManager.LoadScene("_Scene_0");
         }
+    }
+
+        public void BranchDestroyed()
+    {
+        GameObject[] tBranchArray = GameObject.FindGameObjectsWithTag("Branch");
+        foreach (GameObject tGO in tBranchArray)
+        {
+            Destroy(tGO);
+        }
+
     }
 
     // Update is called once per frame
