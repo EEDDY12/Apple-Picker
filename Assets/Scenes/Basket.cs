@@ -8,6 +8,7 @@ public class Basket : MonoBehaviour
 {
 
     public TextMeshProUGUI scoreGT;
+    public TextMeshProUGUI roundGT;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,9 @@ public class Basket : MonoBehaviour
         GameObject scoreGO = GameObject.Find("ScoreCounter");
         scoreGT = scoreGO.GetComponent<TextMeshProUGUI>();
         scoreGT.text = "0";
+        GameObject roundGO = GameObject.Find("Round");
+        roundGT = roundGO.GetComponent<TextMeshProUGUI>();
+        roundGT.text = "Round 1";
     }
 
     // Update is called once per frame
@@ -43,6 +47,16 @@ public class Basket : MonoBehaviour
             int score = int.Parse(scoreGT.text);
             score += 100;
             scoreGT.text = score.ToString();
+
+            //
+            string round = "Round 1";
+            if (score >= 3000) round = "Round 4";
+            else if (score >= 2000) round = "Round 3";
+            else if (score >= 1000) round = "Round 2";
+            else round = "Round 1";
+            roundGT.text = round;
+
+            //
 
             if (score > HighScore.score)
             {

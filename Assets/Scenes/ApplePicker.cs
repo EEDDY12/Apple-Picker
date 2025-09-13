@@ -54,10 +54,10 @@ public class ApplePicker : MonoBehaviour
         public void BranchDestroyed()
     {
         GameObject[] tBranchArray = GameObject.FindGameObjectsWithTag("Branch");
-        foreach (GameObject tGO in tBranchArray)
-        {
-            Destroy(tGO);
-        }
+        //foreach (GameObject tGO in tBranchArray)
+        //{
+            Destroy(tBranchArray[0]);
+        //}
 
     }
 
